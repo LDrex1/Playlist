@@ -1,12 +1,6 @@
 import React from "react";
 import { PlayArrow, PlusOne } from "@mui/icons-material";
-import {
-  Button,
-  ButtonGroup,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { blue } from "@mui/material/colors";
 
@@ -22,11 +16,15 @@ function TrendingInfo() {
 
   const Buttons = (
     <Stack direction={"row"} spacing={2}>
-      <SkyButton variant="contained" endIcon={<PlayArrow />}>
+      <SkyButton
+        sx={{ px: 3, py: 1.7 }}
+        variant="contained"
+        endIcon={<PlayArrow />}
+      >
         Play Now
       </SkyButton>
 
-      <IconButton sx={{ background: "#fff3ff", borderRadius: "10px" }}>
+      <IconButton sx={{ background: "#fff3ff", borderRadius: "10px", px: 2 }}>
         <PlusOne />
       </IconButton>
     </Stack>
@@ -35,18 +33,18 @@ function TrendingInfo() {
   console.log(Buttons, "jh");
 
   return (
-    <>
+    <Box sx={{ width: "80%" }}>
       <Typography component={"p"} mb={2}>
         Trending
       </Typography>
       <Typography component={"h3"} variant={"h3"}>
         Godly
       </Typography>
-      <Typography component={"p"} mt={2} mb={2}>
+      <Typography component={"p"} mt={1.6} mb={4}>
         Omah Lay
       </Typography>
       {Buttons}
-    </>
+    </Box>
   );
 }
 
