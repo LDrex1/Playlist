@@ -1,15 +1,34 @@
 import React from "react";
-import { Box, Grid, Typography, Stack, Slider } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+  Stack,
+  Slider,
+  IconButton,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+
 import ListCard from "../music-lists/ListCard";
 import omahLay from "../../assets/Artist-Omah-Lay.png";
+import Controls from "./Controls";
+import { ArrowDropUpOutlined } from "@mui/icons-material";
 
-function NowPlaying() {
+function NowPlaying(props) {
+  const TinyText = styled(Typography)({
+    fontSize: "0.75rem",
+    opacity: 0.38,
+    fontWeight: 500,
+    letterSpacing: 0.2,
+    marginTop: 0,
+  });
+
   return (
     <Grid
       item
       md={4}
       sx={{
-        background: "rgba(97, 25, 152,0.8)",
+        background: props.backgtound || "rgba(74, 54, 119, 0.8)",
         borderRadius: 10,
         px: 3,
         py: 3,
@@ -38,9 +57,8 @@ function NowPlaying() {
             see all
           </Typography>
         </Stack>
-        <Stack mt={3} alignItems={"center"}>
+        <Stack mt={3} alignItems={"center"} justifyContent={"space-between"}>
           <ListCard
-            height={400}
             maxWidth={250}
             artist={"omah lay"}
             imgSrc={omahLay}
@@ -54,7 +72,25 @@ function NowPlaying() {
               min={0}
               max={100}
             />
+            <Box
+              sx={{
+                mt: -2,
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              <TinyText>0:25</TinyText>
+              <TinyText>-3:05</TinyText>
+            </Box>
+            <Controls />
           </Stack>
+          <Box>
+            <IconButton sx={{ pb: 0 }}>
+              <ArrowDropUpOutlined />
+            </IconButton>
+            <Typography>Lyrics</Typography>
+          </Box>
         </Stack>
       </Box>
     </Grid>
