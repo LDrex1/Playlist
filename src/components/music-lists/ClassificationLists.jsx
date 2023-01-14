@@ -5,7 +5,7 @@ import ClassificationList from "./ClassificationList";
 function ClassificationLists() {
   const list = ["top artists", "billboard topcharts"];
   return (
-    <Grid item md={7.75}>
+    <Box>
       {list.map((musicClass, index) => (
         <Box
           sx={{
@@ -44,7 +44,7 @@ function ClassificationLists() {
           <ClassificationList />
         </Box>
       ))}
-    </Grid>
+    </Box>
   );
 }
 
