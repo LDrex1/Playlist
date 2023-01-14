@@ -1,18 +1,10 @@
 import React from "react";
-import {
-  Box,
-  Grid,
-  Typography,
-  Stack,
-  Slider,
-  IconButton,
-} from "@mui/material";
+import { Box, Typography, Stack, Slider, IconButton } from "@mui/material";
+import { ArrowDropUpOutlined } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
-
 import ListCard from "../music-lists/ListCard";
 import omahLay from "../../assets/Artist-Omah-Lay.png";
 import Controls from "./Controls";
-import { ArrowDropUpOutlined } from "@mui/icons-material";
 
 function NowPlaying(props) {
   const TinyText = styled(Typography)({
@@ -24,15 +16,17 @@ function NowPlaying(props) {
   });
 
   return (
-    <Grid
+    <Box
       item
-      md={4}
+      md={3.25}
       sx={{
-        background: props.backgtound || "rgba(74, 54, 119, 0.8)",
+        background: props.background || "rgba(74, 54, 119, 0.7)",
         borderRadius: 10,
+        height: "100%",
         px: 3,
-        py: 3,
-        zIndex: 0,
+        padding: 3,
+        zIndex: 1,
+        boxSizing: "border-box",
       }}
     >
       <Box sx={{ borderRadius: 10 }}>
@@ -93,7 +87,7 @@ function NowPlaying(props) {
           </Box>
         </Stack>
       </Box>
-    </Grid>
+    </Box>
   );
 }
 
