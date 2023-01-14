@@ -1,15 +1,13 @@
 import "./App.css";
 import { Box } from "@mui/material";
-import TopNavigation from "./components/navigation/TopNavigation";
-import TrendingBox from "./components/trending/TrendingBox";
-import MusicContent from "./components/landing/MusicContent";
+import TopNavigation from "./components/navigation/top-navigation/TopNavigation";
+import Landing from "./components/landing/Landing";
 
 function App() {
   return (
     <Box>
       <TopNavigation />
-      <TrendingBox />
-      <MusicContent />
+      <Landing />
     </Box>
   );
 }
