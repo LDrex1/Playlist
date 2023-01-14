@@ -5,7 +5,7 @@ import TrendingInfo from "./TrendingInfo";
 
 function TrendingBox() {
   return (
-    <Stack alignItems={"center"} sx={{ position: "relative", pt: 8 }}>
+    <Stack alignItems={"center"} sx={{ position: "relative", pt: 2 }}>
       <TrendingInfo />
       <TrendingImage />
     </Stack>
