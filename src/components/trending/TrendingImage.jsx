@@ -11,6 +11,7 @@ function TrendingImage() {
         top: 0,
         background: "none",
         mixBlendMode: "color-dodge",
+        zIndex: -1,
       }}
     >
       <CardMedia
