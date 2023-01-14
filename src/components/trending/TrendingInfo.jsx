@@ -33,7 +33,7 @@ function TrendingInfo() {
   console.log(Buttons, "jh");
 
   return (
-    <Box sx={{ width: "80%" }}>
+    <Box sx={{ pt: 5, width: "80%" }}>
       <Typography component={"p"} mb={2}>
         Trending
       </Typography>
