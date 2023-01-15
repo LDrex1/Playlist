@@ -1,9 +1,6 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import NavigationDrawer from "../navigation/side-navigation/NavigationDrawer";
-import NowPlaying from "../now-playing/NowPlaying";
-import TrendingBox from "../trending/TrendingBox";
-import MusicContent from "./MusicContent";
+import NavigationDrawer from "../../components/navigation/side-navigation/NavigationDrawer";
 import MainLandCont from "./MainLandCont";
 
 function Landing() {

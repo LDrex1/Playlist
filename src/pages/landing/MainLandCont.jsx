@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import NowPlaying from "../now-playing/NowPlaying";
-import TrendingBox from "../trending/TrendingBox";
+import NowPlaying from "../../components/now-playing/NowPlaying";
+import TrendingBox from "../../components/trending/TrendingBox";
 import MusicContent from "./MusicContent";
 
 function MainLandCont() {
