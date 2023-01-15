@@ -20,7 +20,7 @@ function NowPlaying(props) {
       item
       md={3.25}
       sx={{
-        background: props.background || "rgba(74, 54, 119, 0.7)",
+        background: props.background || "rgba(156,46,61,0.7)",
         borderRadius: 10,
         height: "100%",
         px: 3,
