@@ -23,7 +23,10 @@ function TopNavigation() {
   };
   return (
     <>
-      <AppBar position="static" sx={{ background: "none", pt: 5 }}>
+      <AppBar
+        position="static"
+        sx={{ background: "linear-gradient(#5c272f 5%,#8c2d3b  50%)", pt: 5 }}
+      >
         <Toolbar>
           <Tabs
             value={value}
