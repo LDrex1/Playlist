@@ -1,7 +1,7 @@
 import "./App.css";
 import { Box } from "@mui/material";
 import TopNavigation from "./components/navigation/top-navigation/TopNavigation";
-import Landing from "./components/landing/Landing";
+import Landing from "./pages/landing/Landing";
 
 function App() {
   return (
