@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
-export const spotifySlice = createApi({
+export const spotifyApi = createApi({
   reducerPath: "spotify",
   baseQuery: fetchBaseQuery({
     baseUrl: `https://spotify81.p.rapidapi.com`,
@@ -15,25 +15,26 @@ export const spotifySlice = createApi({
   }),
   endpoints: (builder) => ({
     getTop200: builder.query({
-      query: ({ country }) => ({
-        url: "/charts/top_200_tracks",
-        params: { country: country },
+      query: () => ({
+        url: "/top_200_tracks",
+        params: { country: "GLOBAL" },
       }),
     }),
     searchMusic: builder.query({
-      query: ({ options }) => {
-        const { q, type, offset } = options;
+      query: (options) => {
+        const { search, type } = options;
         return {
           url: "/search",
           params: {
-            q,
+            q: search || "omah",
             type: type || "multi",
-            offset: offset || 0,
-            limit: 10,
-            numberOfTopResults,
+            offset: 0,
+            limit: "20",
+            numberOfTopResults: 15,
           },
         };
       },
     }),
   }),
 });
+export const { useGetTop200Query, useSearchMusicQuery } = spotifyApi;
