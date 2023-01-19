@@ -32,7 +32,7 @@ function AccountInfo() {
           background: "#222215",
         }}
       >
-        <CardMedia />
+        <CardMedia component={"img"} sec="" />
       </Card>
       <Typography component={"h3"} variant={"h6"}>
         Mayowa Olorunfemi
