@@ -9,7 +9,7 @@ import { listsTop } from "../NavigationData";
  *
  * @returns navigation content with search button that's at the top of the page
  */
-function TopNavigation() {
+function TopNavigation({ setSearch }) {
   //handling the change in the active top nav bar
   const [value, setValue] = useState(0);
 
@@ -40,7 +40,7 @@ function TopNavigation() {
             ))}
           </Tabs>
           <Box sx={{ flexGrow: 1 }} />
-          <Search />
+          <Search setSearch={setSearch} />
           <Box sx={{ flexGrow: 1 }} />
 
           <AccountInfo />
