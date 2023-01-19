@@ -47,13 +47,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function Search() {
+function Search({ setSearch }) {
+  const handleChange = (ev) => {
+    console.log("first");
+    setSearch(ev.target.value);
+  };
   return (
     <SearchDiv>
       <SearchIconWrapper>
         <SearchOutlined fontSize="large" />
       </SearchIconWrapper>
       <StyledInputBase
+        onChange={handleChange}
         placeholder={"Type your search here"}
         aria-label={"search-box"}
       />
