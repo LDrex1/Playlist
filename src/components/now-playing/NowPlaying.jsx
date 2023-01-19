@@ -17,8 +17,6 @@ function NowPlaying(props) {
 
   return (
     <Box
-      item
-      md={3.25}
       sx={{
         background: props.background || "rgba(156,46,61,0.7)",
         borderRadius: 10,
