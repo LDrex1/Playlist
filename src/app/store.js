@@ -1,11 +1,15 @@
+import {} from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import musicReducer from "../features/music/musicSlice";
+import { composeWithDevTools } from "@redux-devtools/extension";
 import playerReducer from "../features/player/playerSlice";
+import { spotifyApi } from "../features/api/spotifyApi";
 
 export default configureStore({
   reducer: {
-    music: musicReducer,
+    [spotifyApi.reducerPath]: spotifyApi.reducer,
     player: playerReducer,
     users: "",
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(spotifyApi.middleware),
 });
