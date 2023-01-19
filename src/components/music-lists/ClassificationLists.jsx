@@ -8,13 +8,13 @@ function ClassificationLists() {
     <Box>
       {list.map((musicClass, index) => (
         <Box
+          key={musicClass}
           sx={{
             background: "#333345",
             borderRadius: 10,
             display: "flex",
             flexDirection: "column",
             placeItems: "center",
-
             px: 3.5,
             pt: 2,
             pb: 3,
