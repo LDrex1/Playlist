@@ -6,7 +6,12 @@ import omahLay from "../../assets/Artist-Omah-Lay.png";
 function ClassificationList() {
   const list = [1, 2, 3, 4];
   return (
-    <Stack direction={"row"} spacing={2} justifyContent={"center"}>
+    <Stack
+      sx={{ overflowX: "hidden" }}
+      direction={"row"}
+      spacing={2}
+      justifyContent={"center"}
+    >
       {list.map((music) => (
         <ListCard
           key={music}
