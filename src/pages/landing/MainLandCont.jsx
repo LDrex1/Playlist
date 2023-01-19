@@ -6,17 +6,15 @@ import MusicContent from "./MusicContent";
 
 function MainLandCont() {
   return (
-    <Grid item md={10.5}>
-      <Grid container justifyContent={"space-between"}>
-        <Grid item md={12}>
-          <TrendingBox />
-        </Grid>
-        <Grid item mt={5} md={7.6}>
-          <MusicContent />
-        </Grid>
-        <Grid item mt={5} md={4}>
-          <NowPlaying />
-        </Grid>
+    <Grid container justifyContent={"space-between"}>
+      <Grid item md={12}>
+        <TrendingBox />
+      </Grid>
+      <Grid item mt={5} md={7.6}>
+        <MusicContent />
+      </Grid>
+      <Grid item mt={5} md={4}>
+        <NowPlaying />
       </Grid>
     </Grid>
   );
