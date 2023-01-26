@@ -2,7 +2,7 @@ import { CardMedia, Card } from "@mui/material";
 import React from "react";
 import omahLay from "../../assets/Artist-Omah-Lay.png";
 
-function TrendingImage() {
+function TrendingImage({ image }) {
   return (
     <Card
       sx={{
@@ -16,8 +16,8 @@ function TrendingImage() {
     >
       <CardMedia
         component={"img"}
-        alt={"artist"}
-        src={omahLay}
+        alt={"artist_image"}
+        image={image}
         height={500}
         width={400}
       />
