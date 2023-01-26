@@ -4,7 +4,7 @@ import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { blue } from "@mui/material/colors";
 
-function TrendingInfo() {
+function TrendingInfo({ name, artistName }) {
   const SkyButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(blue[500]),
     backgroundColor: blue[300],
@@ -30,18 +30,16 @@ function TrendingInfo() {
     </Stack>
   );
 
-  console.log(Buttons, "jh");
-
   return (
     <Box sx={{ pt: 5, width: "80%" }}>
       <Typography component={"p"} mb={2}>
         Trending
       </Typography>
       <Typography component={"h3"} variant={"h3"}>
-        Godly
+        {name}
       </Typography>
       <Typography component={"p"} mt={1.6} mb={4}>
-        Omah Lay
+        {artistName}
       </Typography>
       {Buttons}
     </Box>
