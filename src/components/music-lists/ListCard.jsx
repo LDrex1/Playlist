@@ -17,8 +17,8 @@ function ListCard(props) {
           borderRadius: 5,
         }}
         component={"img"}
-        alt={"img"}
-        src={imgSrc}
+        alt={"song_image"}
+        image={imgSrc}
       />
       <CardContent color={"white"}>
         <Typography
@@ -36,7 +36,7 @@ function ListCard(props) {
           color={"white"}
           textAlign={"center"}
         >
-          {secTypo}
+          {secTypo} streams
         </Typography>
       </CardContent>
     </Card>
