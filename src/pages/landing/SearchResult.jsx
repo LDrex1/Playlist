@@ -10,7 +10,6 @@ import { useSearchMusicQuery } from "../../features/api/spotifyApi";
  */
 function SearchResult({ search }) {
   const { data, isFetching, error } = useSearchMusicQuery({ search });
-  console.log(isFetching);
   const tracks = data?.tracks;
   return (
     <>
