@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import ClassificationList from "../../components/music-lists/ClassificationList";
 
-function MusicContent() {
-  const list = ["top artists", "billboard topcharts"];
+function MusicContent({ list, data: tracks }) {
   return (
     <Box>
       {list.map((musicClass, index) => (
@@ -41,7 +40,7 @@ function MusicContent() {
               see all
             </Typography>
           </Stack>
-          <ClassificationList />
+          <ClassificationList tracks={tracks} />
         </Box>
       ))}
     </Box>
