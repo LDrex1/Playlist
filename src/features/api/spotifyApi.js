@@ -15,9 +15,9 @@ export const spotifyApi = createApi({
   }),
   endpoints: (builder) => ({
     getTop200: builder.query({
-      query: () => ({
+      query: (options) => ({
         url: "/top_200_tracks",
-        params: { country: "GLOBAL" },
+        params: { country: "GLOBAL", period: "daily" },
       }),
     }),
     searchMusic: builder.query({
