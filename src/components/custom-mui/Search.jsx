@@ -37,7 +37,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1.3, 1, 1.3, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(1)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -49,7 +48,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function Search({ setSearch }) {
   const handleChange = (ev) => {
-    console.log("first");
     setSearch(ev.target.value);
   };
   return (
