@@ -1,10 +1,9 @@
-import { Stack } from "@mui/system";
 import React from "react";
+import { Stack } from "@mui/system";
 import ListCard from "./ListCard";
-import omahLay from "../../assets/Artist-Omah-Lay.png";
+// import omahLay from "../../assets/Artist-Omah-Lay.png";
 
-function ClassificationList() {
-  const list = [1, 2, 3, 4];
+function ClassificationList({ tracks }) {
   return (
     <Stack
       sx={{ overflowX: "hidden" }}
@@ -12,16 +11,30 @@ function ClassificationList() {
       spacing={2}
       justifyContent={"center"}
     >
-      {list.map((music) => (
-        <ListCard
-          key={music}
-          height={201.25}
-          artist={"omah lay"}
-          imgSrc={omahLay}
-          secTypo={"8.5k plays"}
-          maxWidth={137.77}
-        />
-      ))}
+      {tracks?.slice(0, 4).map(({ chartEntryData, trackMetadata }, index) => {
+        const { previousRank, currentRank, rankingMetric } = chartEntryData;
+        const streams = rankingMetric.value;
+        const {
+          trackName: name,
+          trackUrl: url,
+          displayImageUri: image,
+          artists: allArtists,
+        } = trackMetadata;
+        const artistName = allArtists.reduce((acc, { name }) => {
+          return acc + name + " ";
+        }, "");
+        return (
+          <ListCard
+            key={currentRank}
+            name={name}
+            height={210}
+            artist={artistName}
+            imgSrc={image}
+            secTypo={streams}
+            maxWidth={140.77}
+          />
+        );
+      })}
     </Stack>
   );
 }
