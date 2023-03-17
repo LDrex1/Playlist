@@ -17,17 +17,18 @@ export const spotifyApi = createApi({
     getTop200: builder.query({
       query: (options) => ({
         url: "/top_200_tracks",
-        params: { country: "GLOBAL", period: "daily" },
+        params: { country: "GLOBAL" },
       }),
     }),
     searchMusic: builder.query({
       query: (options) => {
-        const { search, type } = options;
+        const { search, activeFilter } = options;
         return {
           url: "/search",
           params: {
-            q: search || "omah",
-            type: type || "multi",
+            q: search,
+            type:
+              (activeFilter === "All" && "multi") || activeFilter.toLowerCase(),
             offset: 0,
             limit: "20",
             numberOfTopResults: 15,
