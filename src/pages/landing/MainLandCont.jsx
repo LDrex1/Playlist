@@ -7,23 +7,25 @@ import { useGetTop200Query } from "../../features/api/spotifyApi";
 
 function MainLandCont() {
   const list = ["top Songs", "billboard topcharts"];
-  const { data, isFetching, error } = useGetTop200Query({});
-  try {
-    console.log(data);
-    const { trackMetadata } = data[0];
-    const {
-      trackName: name,
-      trackUrl: url,
-      displayImageUri: image,
-      artists: allArtists,
-    } = trackMetadata;
-    const artistName = allArtists.reduce((acc, { name }) => {
-      return acc + name + " ";
-    }, "");
-  } catch (err) {
-    console.log(err.message);
-    // error = true;
-  }
+  const { data, isFetching, error } = useGetTop200Query();
+  console.log(data, isFetching, error);
+  //   let name, url,image,artistName
+  //   if (data) {
+  const { trackMetadata } = (data && data[0]) || {};
+  const {
+    trackName: name,
+    trackUrl: url,
+    displayImageUri: image,
+    artists: allArtists,
+  } = trackMetadata || {};
+  const artistName = allArtists?.reduce((acc, { name }) => {
+    return acc + name + " ";
+  }, "");
+  //   }
+  //   } catch (err) {
+  //     console.log(err.message);
+  //     // error = true;
+  //   }
   return (
     <>
       {isFetching ? (
