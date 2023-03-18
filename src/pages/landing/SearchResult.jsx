@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 import CustomButton from "../../components/custom-mui/CustomButton";
 import LongMusicCard from "../../components/music-lists/LongMusicCard";
 import { useSearchMusicQuery } from "../../features/api/spotifyApi";
+import Filter from "../../features/search/Filter";
 
 /**
  *
@@ -22,21 +23,21 @@ function SearchResult({ search }) {
     const filters = ["Artists", "Tracks", "Genres", "Albums", "All"];
     const handleClick = (ev) => {
       const active = ev.target.textContent;
-      setActiveFilter(() => ev.target.textContent);
+      setActiveFilter(() => active);
     };
     return (
-      <Stack columnGap={2} direction={"row"}>
-        {filters?.map((filter) => (
-          <CustomButton
-            sx={{
-              backgroundColor: filter === activeFilter && "#0d47a1",
-              border: filter === activeFilter && "1px solid",
-            }}
-            key={filter}
-            children={filter}
-            handleClick={handleClick}
-          />
-        ))}
+      <Stack
+        mt={2}
+        columnGap={2}
+        rowGap={1}
+        direction={"row"}
+        flexWrap={"wrap"}
+      >
+        <Filter
+          filters={filters}
+          handleClick={handleClick}
+          activeFilter={activeFilter}
+        />
       </Stack>
     );
   };
