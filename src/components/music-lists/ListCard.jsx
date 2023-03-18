@@ -1,15 +1,19 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import device from "../devices";
 
 function ListCard(props) {
-  const { maxWidth, height, imgSrc, artist, secTypo } = props;
+  const { maxWidth, height, imgSrc, artist, secTypo, name } = props;
   return (
     <Card
       sx={{
         background: "none",
-        height: height,
+        height: 230,
         maxWidth: maxWidth,
         boxShadow: "none",
+        [`@media (${device.mobileS})`]: {
+          height: height,
+        },
       }}
     >
       <CardMedia
@@ -27,7 +31,7 @@ function ListCard(props) {
           color={"white"}
           textAlign={"center"}
         >
-          {artist}
+          {name?.slice(0, 9) + `${name?.length > 10 ? "..." : ""}`}
         </Typography>
         <Typography
           component={"p"}
@@ -36,7 +40,7 @@ function ListCard(props) {
           color={"white"}
           textAlign={"center"}
         >
-          {secTypo} streams
+          {artist}
         </Typography>
       </CardContent>
     </Card>
