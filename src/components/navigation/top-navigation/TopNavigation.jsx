@@ -24,11 +24,12 @@ function TopNavigation({ setSearch }) {
   return (
     <>
       <AppBar
-        position="static"
+        position="relative"
         sx={{ background: "linear-gradient(#5c272f 5%,#8c2d3b  50%)", pt: 5 }}
       >
         <Toolbar>
           <Tabs
+            sx={{ "& .MuiTabs-scroller": { overflowX: "scroll !important" } }}
             value={value}
             onChange={handleTabs}
             indicatorColor={"secondary"}
