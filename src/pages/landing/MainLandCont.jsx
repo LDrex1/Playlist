@@ -6,11 +6,12 @@ import MusicContent from "./MusicContent";
 import { useGetTop200Query } from "../../features/api/spotifyApi";
 
 function MainLandCont() {
+  const filters = ["NG", "US", "FR"];
+
   const list = ["top Songs", "billboard topcharts"];
-  const { data, isFetching, error } = useGetTop200Query();
+  const { data, isFetching, error } = useGetTop200Query({});
   console.log(data, isFetching, error);
-  //   let name, url,image,artistName
-  //   if (data) {
+
   const { trackMetadata } = (data && data[0]) || {};
   const {
     trackName: name,
@@ -21,11 +22,7 @@ function MainLandCont() {
   const artistName = allArtists?.reduce((acc, { name }) => {
     return acc + name + " ";
   }, "");
-  //   }
-  //   } catch (err) {
-  //     console.log(err.message);
-  //     // error = true;
-  //   }
+
   return (
     <>
       {isFetching ? (
@@ -34,13 +31,13 @@ function MainLandCont() {
         <div>error</div>
       ) : (
         <Grid container justifyContent={"space-between"}>
-          <Grid item md={12}>
+          <Grid item xs={12}>
             <TrendingBox name={name} image={image} artistName={artistName} />
           </Grid>
           <Grid item mt={5} md={7.6}>
             <MusicContent list={list} data={data} />
           </Grid>
-          <Grid item mt={5} md={4}>
+          <Grid item mt={5} xs={12} md={4}>
             <NowPlaying />
           </Grid>
         </Grid>
