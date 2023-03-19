@@ -34,7 +34,7 @@ function MainLandCont() {
           <Grid item xs={12}>
             <TrendingBox name={name} image={image} artistName={artistName} />
           </Grid>
-          <Grid item mt={5} md={7.6}>
+          <Grid item mt={5} xs={12} md={7.6}>
             <MusicContent list={list} data={data} />
           </Grid>
           <Grid item mt={5} xs={12} md={4}>
