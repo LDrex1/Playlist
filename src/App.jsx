@@ -14,7 +14,7 @@ function App() {
       <TopNavigation setSearch={setSearch} />
       <Grid container justifyContent={"space-between"} alignItems={"stretch"}>
         <NavigationDrawer />
-        <Grid item xs={9.3} md={10}>
+        <Grid item xs={12} md={10}>
           {search ? <SearchResult search={search} /> : <MainLandCont />}
         </Grid>
       </Grid>
