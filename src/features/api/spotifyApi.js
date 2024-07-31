@@ -28,7 +28,8 @@ export const spotifyApi = createApi({
           params: {
             q: search,
             type:
-              (activeFilter === "All" && "multi") || activeFilter.toLowerCase(),
+              (activeFilter === "All" && "multi") ||
+              activeFilter?.toLowerCase(),
             offset: 0,
             limit: "20",
             numberOfTopResults: 15,
