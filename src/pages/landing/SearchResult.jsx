@@ -18,6 +18,7 @@ function SearchResult({ search }) {
   });
   const tracks = data?.tracks;
   const artists = data?.artists?.items;
+  const albums = data?.albums?.items;
 
   const SearchFilters = () => {
     const filters = ["Artists", "Tracks", "Genres", "Albums", "All"];
@@ -52,8 +53,7 @@ function SearchResult({ search }) {
           <SearchFilters />
           <Stack mt={2} spacing={2.2}>
             {tracks?.map(({ data }) => {
-              const { artists, url, albumOfTrack, id, name, playability } =
-                data;
+              const { artists, albumOfTrack, id, name, playability } = data;
               const allArtists = artists.items;
               const artistName = allArtists.reduce((acc, { profile }) => {
                 return acc + profile.name + " ";
@@ -69,12 +69,28 @@ function SearchResult({ search }) {
               );
             })}
             {artists?.map(({ data }) => {
-              const { url, profile, visuals } = data;
-              const { url: image } = visuals?.avatarImage?.sources[0];
+              const { profile, visuals } = data;
+              const image = visuals?.avatarImage?.sources[0]?.url;
               return (
                 <LongMusicCard
-                  key={profile.name}
-                  name={profile.name}
+                  key={profile?.name}
+                  name={profile?.name}
+                  image={image}
+                />
+              );
+            })}
+            {albums?.map(({ data }) => {
+              const { artists, coverArt, name } = data;
+              const allArtists = artists.items;
+              const artistName = allArtists.reduce((acc, { profile }) => {
+                return acc + profile.name + " ";
+              }, "");
+              const [image] = coverArt?.sources;
+              return (
+                <LongMusicCard
+                  key={name}
+                  name={name}
+                  artistName={artistName}
                   image={image}
                 />
               );
